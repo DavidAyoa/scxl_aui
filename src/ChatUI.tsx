@@ -207,7 +207,7 @@ const MainChatArea: React.FC<{
   );
 };
 
-const ChatUIEnhanced: React.FC<ChatUIProps> = ({
+const ChatUI: React.FC<ChatUIProps> = ({
   systemPrompt = "You are a helpful AI assistant.",
   connectionUrl,
   theme = {},
@@ -453,4 +453,4 @@ const ChatUIEnhanced: React.FC<ChatUIProps> = ({
   );
 };
 
-export default ChatUIEnhanced;
+export default ChatUI;

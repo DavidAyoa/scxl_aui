@@ -20,4 +20,4 @@ export {
 export { default as TypeWriter } from './components/TypeWriter';
 
 // Re-export original component for backward compatibility
-export { default as ChatUIOriginal } from './ChatUI';
+export { default as ChatUI } from './ChatUI';

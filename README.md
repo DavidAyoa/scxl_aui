@@ -47,15 +47,15 @@ A fully customizable, themeable React component for voice and text conversations
 
 ```bash
 # npm install @scoreexl/chatui
-npm install https://github.com/DavidAyoa/scxl_aui.git
+npm install git+https://github.com/DavidAyoa/scxl_aui.git
 # or
-yarn add https://github.com/DavidAyoa/scxl_aui.git
+yarn add git+https://github.com/DavidAyoa/scxl_aui.git
 ```
 
 ## 🚀 Quick Start
 
 ```tsx
-import { ChatUI } from 'https://github.com/DavidAyoa/scxl_aui.git';
+import { ChatUI } from 'git+https://github.com/DavidAyoa/scxl_aui.git';
 
 function App() {
   return (
@@ -72,7 +72,7 @@ function App() {
 ### Basic Color Change (Replace indigo-500 with blue-600)
 
 ```tsx
-import { ChatUI, ChatUITheme } from 'https://github.com/DavidAyoa/scxl_aui.git';
+import { ChatUI, ChatUITheme } from 'git+https://github.com/DavidAyoa/scxl_aui.git';
 
 const blueTheme: ChatUITheme = {
   primary: 'scxl:text-blue-600',
@@ -114,7 +114,7 @@ const darkTheme: ChatUITheme = {
 ## 🔔 Callback Usage
 
 ```tsx
-import { ChatUI, ChatUICallbacks } from 'https://github.com/DavidAyoa/scxl_aui.git';
+import { ChatUI, ChatUICallbacks } from 'git+https://github.com/DavidAyoa/scxl_aui.git';
 
 const callbacks: ChatUICallbacks = {
   onConnect: () => console.log('🔗 Connected!'),
@@ -313,7 +313,7 @@ The component includes proper cleanup mechanisms and can be easily tested:
 
 ```tsx
 import { render, cleanup } from '@testing-library/react';
-import { ChatUI } from 'https://github.com/DavidAyoa/scxl_aui.git';
+import { ChatUI } from 'git+https://github.com/DavidAyoa/scxl_aui.git';
 
 afterEach(cleanup);
 
