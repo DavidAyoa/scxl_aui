@@ -67,7 +67,7 @@ const Conversations: React.FC<Props> = ({
       Math.ceil(scrollElement.clientHeight + 50); // 50px threshold
   }, [noAutoscroll]);
 
-  const { messages, isLoading, lastUpdated } = useConversation({
+  const { messages } = useConversation({
     onMessageAdded: () => {
       if (noAutoscroll) return;
       // Small delay to ensure DOM is updated

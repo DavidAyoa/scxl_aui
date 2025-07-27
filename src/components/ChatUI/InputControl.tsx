@@ -29,6 +29,7 @@ interface Labels {
   botReadyText: string;
   connectedText: string;
   voiceTooltip: string;
+  textTooltip: string;
   disconnectButton: string;
 }
 

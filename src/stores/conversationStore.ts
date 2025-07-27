@@ -23,7 +23,7 @@ class ConversationStore {
 
   private listeners: Set<() => void> = new Set();
   private storageKey = 'scxl_conversation_state';
-  private useSessionStorage = true; // true = clears on browser close, false = persists forever
+  // private useSessionStorage = true; // true = clears on browser close, false = persists forever
 
   constructor() {
     // Choose your storage strategy:
@@ -49,27 +49,27 @@ class ConversationStore {
   }
 
   // Load from sessionStorage (clears when browser closes)
-  private loadFromSessionStorage() {
-    try {
-      const stored = sessionStorage.getItem(this.storageKey);
-      if (stored) {
-        const parsedState = JSON.parse(stored);
-        // Ensure all messages have the isFresh property (backward compatibility)
-        if (parsedState.messages) {
-          parsedState.messages = parsedState.messages.map((msg: any) => ({
-            ...msg,
-            isFresh: msg.isFresh ?? false, // Default to false for existing messages
-          }));
-        }
-        this.state = {
-          ...this.state,
-          ...parsedState,
-        };
-      }
-    } catch (error) {
-      console.warn('Failed to load conversation from sessionStorage:', error);
-    }
-  }
+  // private loadFromSessionStorage() {
+  //   try {
+  //     const stored = sessionStorage.getItem(this.storageKey);
+  //     if (stored) {
+  //       const parsedState = JSON.parse(stored);
+  //       // Ensure all messages have the isFresh property (backward compatibility)
+  //       if (parsedState.messages) {
+  //         parsedState.messages = parsedState.messages.map((msg: any) => ({
+  //           ...msg,
+  //           isFresh: msg.isFresh ?? false, // Default to false for existing messages
+  //         }));
+  //       }
+  //       this.state = {
+  //         ...this.state,
+  //         ...parsedState,
+  //       };
+  //     }
+  //   } catch (error) {
+  //     console.warn('Failed to load conversation from sessionStorage:', error);
+  //   }
+  // }
 
   // Subscribe to state changes
   subscribe(callback: () => void) {
@@ -230,27 +230,27 @@ class ConversationStore {
   }
 
   // Load from localStorage
-  private loadFromStorage() {
-    try {
-      const stored = localStorage.getItem(this.storageKey);
-      if (stored) {
-        const parsedState = JSON.parse(stored);
-        // Ensure all messages have the isFresh property (backward compatibility)
-        if (parsedState.messages) {
-          parsedState.messages = parsedState.messages.map((msg: any) => ({
-            ...msg,
-            isFresh: msg.isFresh ?? false, // Default to false for existing messages
-          }));
-        }
-        this.state = {
-          ...this.state,
-          ...parsedState,
-        };
-      }
-    } catch (error) {
-      console.warn('Failed to load conversation from localStorage:', error);
-    }
-  }
+  // private loadFromStorage() {
+  //   try {
+  //     const stored = localStorage.getItem(this.storageKey);
+  //     if (stored) {
+  //       const parsedState = JSON.parse(stored);
+  //       // Ensure all messages have the isFresh property (backward compatibility)
+  //       if (parsedState.messages) {
+  //         parsedState.messages = parsedState.messages.map((msg: any) => ({
+  //           ...msg,
+  //           isFresh: msg.isFresh ?? false, // Default to false for existing messages
+  //         }));
+  //       }
+  //       this.state = {
+  //         ...this.state,
+  //         ...parsedState,
+  //       };
+  //     }
+  //   } catch (error) {
+  //     console.warn('Failed to load conversation from localStorage:', error);
+  //   }
+  // }
 
   // Mark all messages as not fresh (disable typewriter for all)
   markAllMessagesAsStale() {

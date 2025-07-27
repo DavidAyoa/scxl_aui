@@ -1,7 +1,3 @@
-// Main ChatUI Component
-export { default as ChatUI } from './ChatUIEnhanced';
-export { default as ChatUIEnhanced } from './ChatUIEnhanced';
-
 // Types
 export type { 
   ChatUIProps, 
@@ -10,7 +6,7 @@ export type {
   ChatUIConfig, 
   ChatUISize, 
   ChatUIState 
-} from './types/ChatUITypes';
+} from './types';
 
 // Utilities
 export { 
