@@ -13,13 +13,13 @@
     },
     "declaration": true,
     "emitDeclarationOnly": true,
-    "declarationDir": "dist",
-    "outDir": "dist",
-    "composite": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "target": "ESNext",
     "jsx": "react-jsx",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
   }
 }
