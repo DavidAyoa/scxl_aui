@@ -1,15 +1,15 @@
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonGroupVariants = cva(
-  "scxl:flex scxl:items-center scxl:*:rounded-none",
+  "flex items-center *:rounded-none",
   {
     variants: {
       orientation: {
         horizontal:
-          "scxl:flex-row scxl:*:first:rounded-s-md scxl:*:last:rounded-e-md scxl:*:-ml-[1px] scxl:*:first:ml-0",
+          "flex-row *:first:rounded-s-md *:last:rounded-e-md *:-ml-[1px] *:first:ml-0",
         vertical:
-          "scxl:flex-col scxl:*:first:rounded-t-md scxl:*:last:rounded-b-md scxl:*:-mt-[1px] scxl:*:first:mt-0",
+          "flex-col *:first:rounded-t-md *:last:rounded-b-md *:-mt-[1px] *:first:mt-0",
       },
     },
     defaultVariants: {
@@ -27,7 +27,7 @@ export const ButtonGroup = ({
   return (
     <div
       className={cn(
-        "scxl:flex",
+        "flex",
         buttonGroupVariants({ orientation }),
         className,
       )}

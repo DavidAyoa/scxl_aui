@@ -2,8 +2,8 @@ import { usePipecatClientTransportState } from "@pipecat-ai/client-react";
 import { Fragment, useCallback, useEffect, useRef } from "react";
 import { type LenisRef, ReactLenis } from "lenis/react";
 import { cancelFrame, frame } from "motion/react";
-import useConversation from "@/hooks/useConversation";
-import { cn } from "@/lib/utils";
+import useConversation from "../../hooks/useConversation";
+import { cn } from "../../lib/utils";
 import ResponseParser from "../ResponseParser";
 import Thinking from "./Thinking";
 
@@ -113,23 +113,23 @@ const Conversations: React.FC<Props> = ({
           touchMultiplier: 2,
         }}
         className={cn(
-          "scxl:flex-1 scxl:sm:w-3/4 scxl:sm:max-w-4xl chat-scxl scxl:w-full! scxl:sm:p-5 scxl:p-2 scxl:overflow-y-auto",
+          "flex-1 sm:w-3/4 sm:max-w-4xl chat-scxl w-full! sm:p-5 p-2 overflow-y-auto",
           classNames.container
         )}
         ref={lenisRef}
       >
-        <div className="scxl:w-full scxl:h-full scxl:flex scxl:flex-col scxl:gap-2">
+        <div className="w-full h-full flex flex-col gap-2">
           {messages.map((message, index) => (
             <Fragment key={message.id || index}>
               {message.role === "user" ? (
-                <div className="scxl:flex scxl:flex-row scxl:w-full scxl:justify-end">
-                  <div className="scxl:max-w-3/4 scxl:text-sm scxl:bg-indigo-500 scxl:p-2 scxl:rounded-tr-xl scxl:rounded-tl-xl scxl:rounded-bl-xl scxl:m-2">
-                    <p className="scxl:text-white">{message.content}</p>
+                <div className="flex flex-row w-full justify-end">
+                  <div className="max-w-3/4 text-sm bg-indigo-500 p-2 rounded-tr-xl rounded-tl-xl rounded-bl-xl m-2">
+                    <p className="text-white">{message.content}</p>
                   </div>
                 </div>
               ) : (
-                <div className="scxl:flex scxl:flex-row scxl:w-full">
-                  <div className="scxl:w-full scxl:text-sm scxl:p-2 scxl:m-2">
+                <div className="flex flex-row w-full">
+                  <div className="w-full text-sm p-2 m-2">
                     {message.content ? (
                       <ResponseParser 
                         rawContent={message.content} 
@@ -160,13 +160,13 @@ const Conversations: React.FC<Props> = ({
           touchMultiplier: 2,
         }}
         className={cn(
-          "scxl:flex-1 scxl:sm:w-3/4 scxl:sm:max-w-4xl chat-scxl scxl:w-full! scxl:sm:p-5 scxl:p-2 scxl:overflow-y-auto",
+          "flex-1 sm:w-3/4 sm:max-w-4xl chat-scxl w-full! sm:p-5 p-2 overflow-y-auto",
           classNames.container
         )}
         ref={lenisRef}
       >
-        <div className="scxl:flex scxl:items-center scxl:justify-center scxl:h-full">
-          <div className="scxl:text-muted-foreground scxl:text-sm">
+        <div className="flex items-center justify-center h-full">
+          <div className="text-muted-foreground text-sm">
             Connecting to agent...
           </div>
         </div>
@@ -184,17 +184,17 @@ const Conversations: React.FC<Props> = ({
           touchMultiplier: 2,
         }}
         className={cn(
-          "scxl:flex-1 scxl:sm:w-3/4 scxl:sm:max-w-4xl chat-scxl scxl:w-full! scxl:sm:p-5 scxl:p-2 scxl:overflow-y-auto",
+          "flex-1 sm:w-3/4 sm:max-w-4xl chat-scxl w-full! sm:p-5 p-2 overflow-y-auto",
           classNames.container
         )}
         ref={lenisRef}
       >
-        <div className="scxl:flex scxl:items-center scxl:justify-center scxl:h-full">
-          <div className="scxl:text-center scxl:p-4">
-            <div className="scxl:text-muted-foreground scxl:mb-2">
+        <div className="flex items-center justify-center h-full">
+          <div className="text-center p-4">
+            <div className="text-muted-foreground mb-2">
               Not connected to agent
             </div>
-            <p className="scxl:text-sm scxl:text-muted-foreground scxl:max-w-md">
+            <p className="text-sm text-muted-foreground max-w-md">
               Connect to an agent to see conversation messages in real-time.
             </p>
           </div>
@@ -213,13 +213,13 @@ const Conversations: React.FC<Props> = ({
         touchMultiplier: 2,
       }}
       className={cn(
-        "scxl:flex-1 scxl:sm:w-3/4 scxl:sm:max-w-4xl chat-scxl scxl:w-full! scxl:sm:p-5 scxl:p-2 scxl:overflow-y-auto",
+        "flex-1 sm:w-3/4 sm:max-w-4xl chat-scxl w-full! sm:p-5 p-2 overflow-y-auto",
         classNames.container
       )}
       ref={lenisRef}
     >
-      <div className="scxl:flex scxl:items-center scxl:justify-center scxl:h-full">
-        <div className="scxl:text-muted-foreground scxl:text-sm">
+      <div className="flex items-center justify-center h-full">
+        <div className="text-muted-foreground text-sm">
           Waiting for messages...
         </div>
       </div>

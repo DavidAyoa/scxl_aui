@@ -1,14 +1,14 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ButtonGroup } from "@/components/ui/buttongroup";
+import { Button } from "../ui/button";
+import { ButtonGroup } from "../ui/buttongroup";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
+} from "../ui/popover";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { Label } from "../ui/label";
 import {
   PipecatClientMicToggle,
   usePipecatClient,
@@ -68,7 +68,7 @@ const UserAudio: React.FC<Props> = ({
     return (
       <div
         className={cn(
-          "scxl:flex scxl:items-center scxl:gap-2 scxl:bg-muted scxl:rounded-md scxl:p-2 scxl:text-muted-foreground scxl:font-mono scxl:text-sm",
+          "flex items-center gap-2 bg-muted rounded-md p-2 text-muted-foreground font-mono text-sm",
           classNames.container,
         )}
       >
@@ -79,15 +79,15 @@ const UserAudio: React.FC<Props> = ({
 
   return (
     <div
-      className={cn("scxl:flex scxl:flex-col scxl:gap-2 scxl:rounded-full", classNames.container)}
+      className={cn("flex flex-col gap-2 rounded-full", classNames.container)}
     >
-      <ButtonGroup className={cn("scxl:w-full", classNames.buttongroup)}>
+      <ButtonGroup className={cn("w-full", classNames.buttongroup)}>
         <PipecatClientMicToggle>
           {({ isMicEnabled, onClick }) => (
             <Button
               onClick={onClick}
               className={cn(
-                "scxl:flex-1 scxl:justify-start",
+                "flex-1 justify-start",
                 classNames.button,
               )}
               variant="secondary"
@@ -115,7 +115,7 @@ const UserAudio: React.FC<Props> = ({
             <PopoverTrigger asChild>
               <Button
                 className={cn(
-                  "scxl:p-2! scxl:flex-none",
+                  "p-2! flex-none",
                   classNames.popoverTrigger,
                 )}
                 variant="secondary"
@@ -126,17 +126,17 @@ const UserAudio: React.FC<Props> = ({
             </PopoverTrigger>
             <PopoverContent
               align="end"
-              className={cn("scxl:w-80 scxl:border-none scxl:bg-transparent scxl:shadow-none", classNames.popoverContent)}
+              className={cn("w-80 border-none bg-transparent shadow-none", classNames.popoverContent)}
             >
-              <div className="scxl:space-y-2">
-                <h4 className="scxl:font-medium scxl:leading-none">Select Microphone</h4>
+              <div className="space-y-2">
+                <h4 className="font-medium leading-none">Select Microphone</h4>
                 <RadioGroup
                   value={selectedMic?.deviceId || ""}
                   onValueChange={handleMicChange}
-                  className={cn("scxl:space-y-2", classNames.radioGroup)}
+                  className={cn("space-y-2", classNames.radioGroup)}
                 >
                   {availableMics.map((mic) => (
-                    <div key={mic.deviceId} className="scxl:flex scxl:cursor-pointer scxl:items-center scxl:space-x-2 scxl:bg-black scxl:text-white scxl:rounded-md scxl:p-2">
+                    <div key={mic.deviceId} className="flex cursor-pointer items-center space-x-2 bg-black text-white rounded-md p-2">
                       <RadioGroupItem
                         value={mic.deviceId}
                         id={mic.deviceId}
@@ -145,7 +145,7 @@ const UserAudio: React.FC<Props> = ({
                       <Label
                         htmlFor={mic.deviceId}
                         className={cn(
-                          "scxl:text-sm scxl:font-normal scxl:cursor-pointer scxl:flex-1",
+                          "text-sm font-normal cursor-pointer flex-1",
                           classNames.label
                         )}
                       >

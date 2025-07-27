@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { RTVIEvent } from "@pipecat-ai/client-js";
 import { useRTVIClientEvent } from "@pipecat-ai/client-react";
-import conversationStore, { type ConversationMessage, type ConversationState } from '@/stores/conversationStore';
+import conversationStore, { type ConversationMessage, type ConversationState } from '../stores/conversationStore';
 
 interface Props {
   onMessageAdded?: (message: ConversationMessage) => void;
@@ -24,7 +24,7 @@ export const useConversation = ({ onMessageAdded }: Props = {}) => {
 
   useRTVIClientEvent(RTVIEvent.BotLlmStarted, () => {
     const messages = conversationStore.getMessages();
-    const lastBotMessage = messages.slice().reverse().find(msg => msg.role === "assistant");
+    const lastBotMessage = messages.slice().reverse().find((msg: ConversationMessage) => msg.role === "assistant");
     
     if (!lastBotMessage || lastBotMessage.content) {
       const newMessage = conversationStore.addMessage({
@@ -42,7 +42,7 @@ export const useConversation = ({ onMessageAdded }: Props = {}) => {
 
   useRTVIClientEvent(RTVIEvent.BotLlmText, (data) => {
     const messages = conversationStore.getMessages();
-    const lastBotMessage = messages.slice().reverse().find(msg => msg.role === "assistant");
+    const lastBotMessage = messages.slice().reverse().find((msg: ConversationMessage) => msg.role === "assistant");
 
     if (lastBotMessage && !lastBotMessage.final) {
       const updatedMessage = conversationStore.updateMessage(lastBotMessage.id, {
@@ -63,11 +63,11 @@ export const useConversation = ({ onMessageAdded }: Props = {}) => {
 
   useRTVIClientEvent(RTVIEvent.BotLlmStopped, () => {
     const messages = conversationStore.getMessages();
-    const lastBotMessage = messages.slice().reverse().find(msg => msg.role === "assistant");
+    const lastBotMessage = messages.slice().reverse().find((msg: ConversationMessage) => msg.role === "assistant");
 
     if (lastBotMessage) {
       if (!lastBotMessage.content) {
-        const messageIndex = messages.findIndex(msg => msg.id === lastBotMessage.id);
+        const messageIndex = messages.findIndex((msg: ConversationMessage) => msg.id === lastBotMessage.id);
         if (messageIndex !== -1) {
           const newMessages = [...messages];
           newMessages.splice(messageIndex, 1);
@@ -87,7 +87,7 @@ export const useConversation = ({ onMessageAdded }: Props = {}) => {
 
   useRTVIClientEvent(RTVIEvent.UserStartedSpeaking, () => {
     const messages = conversationStore.getMessages();
-    const lastUserMessage = messages.slice().reverse().find(msg => msg.role === "user");
+    const lastUserMessage = messages.slice().reverse().find((msg: ConversationMessage) => msg.role === "user");
     if (!lastUserMessage || lastUserMessage.content) {
       const newMessage = conversationStore.addMessage({
         role: "user",
@@ -100,7 +100,7 @@ export const useConversation = ({ onMessageAdded }: Props = {}) => {
 
   useRTVIClientEvent(RTVIEvent.UserTranscript, (data) => {
     const messages = conversationStore.getMessages();
-    const lastUserMessage = messages.slice().reverse().find(msg => msg.role === "user" && !msg.final);
+    const lastUserMessage = messages.slice().reverse().find((msg: ConversationMessage) => msg.role === "user" && !msg.final);
 
     if (lastUserMessage) {
       const updatedMessage = conversationStore.updateMessage(lastUserMessage.id, {
@@ -123,10 +123,10 @@ export const useConversation = ({ onMessageAdded }: Props = {}) => {
   useRTVIClientEvent(RTVIEvent.UserStoppedSpeaking, () => {
     setTimeout(() => {
       const messages = conversationStore.getMessages();
-      const lastUserMessage = messages.slice().reverse().find(msg => msg.role === "user");
+      const lastUserMessage = messages.slice().reverse().find((msg: ConversationMessage) => msg.role === "user");
 
       if (lastUserMessage && !lastUserMessage.content) {
-        const messageIndex = messages.findIndex(msg => msg.id === lastUserMessage.id);
+        const messageIndex = messages.findIndex((msg: ConversationMessage) => msg.id === lastUserMessage.id);
         if (messageIndex !== -1) {
           const newMessages = [...messages];
           newMessages.splice(messageIndex, 1);

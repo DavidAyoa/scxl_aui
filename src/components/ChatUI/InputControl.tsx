@@ -84,7 +84,7 @@ export const TextModeControl: React.FC<TextModeControlProps> = ({
   return (
     <div
       className={clsx(
-        "scxl:w-full scxl:flex scxl:flex-col scxl:border-[1.5px] scxl:rounded-2xl",
+        "w-full flex flex-col border-[1.5px] rounded-2xl",
         theme.inputBorder,
         theme.inputBackground
       )}
@@ -99,47 +99,47 @@ export const TextModeControl: React.FC<TextModeControlProps> = ({
           onHeightChange={onHeightChange}
           onKeyDown={onTextSend}
           className={clsx(
-            "scxl:font-medium scxl:outline-none scxl:border-none scxl:w-full scxl:resize-none scxl:transition-all scxl:duration-200 scxl:ease-in-out",
+            "font-medium outline-none border-none w-full resize-none transition-all duration-200 ease-in-out",
             size.input,
             theme.textPrimary,
-            isAtMaxHeight && "scxl:overflow-y-auto"
+            isAtMaxHeight && "overflow-y-auto"
           )}
         />
       ) : (
-        <div className="scxl:p-4 scxl:text-center">
+        <div className="p-4 text-center">
           <p className={clsx(size.text, theme.textSecondary)}>
             🎤 Voice mode active - Speak to chat
           </p>
         </div>
       )}
-      <div className="scxl:w-full scxl:flex scxl:items-center scxl:justify-between scxl:px-2 scxl:h-fit">
+      <div className="w-full flex items-center justify-between px-2 h-fit">
         {showConnectionStatus && (
-          <div className="scxl:flex scxl:flex-row scxl:items-center scxl:p-2">
-            <span className="scxl:relative scxl:flex scxl:size-2 scxl:justify-center scxl:items-center">
+          <div className="flex flex-row items-center p-2">
+            <span className="relative flex size-2 justify-center items-center">
               <span
                 className={clsx(
-                  "scxl:absolute scxl:inline-flex scxl:h-full scxl:w-full scxl:animate-ping scxl:rounded-full scxl:opacity-75",
+                  "absolute inline-flex h-full w-full animate-ping rounded-full opacity-75",
                   isBotReady ? theme.ready : theme.connecting
                 )}
               ></span>
               <span
                 className={clsx(
-                  "scxl:relative scxl:inline-flex scxl:size-2 scxl:rounded-full",
+                  "relative inline-flex size-2 rounded-full",
                   isBotReady ? theme.ready : theme.connecting
                 )}
               ></span>
             </span>
-            <div className={clsx("scxl:ml-2 scxl:text-gray-800 scxl:font-medium scxl:text-sm")}>
+            <div className={clsx("ml-2 text-gray-800 font-medium text-sm")}>
               {isBotReady ? labels.botReadyText : labels.connectedText}
               {showParticipantId && participantId && (
-                <span className={clsx("scxl:ml-1", theme.textMuted)}>
+                <span className={clsx("ml-1", theme.textMuted)}>
                   ({participantId.slice(0, 8)}...)
                 </span>
               )}
             </div>
           </div>
         )}
-        <div className="scxl:flex scxl:items-center scxl:gap-2 scxl:text-sm">
+        <div className="flex items-center gap-2 text-sm">
           {enableVoice && (
             <Tooltip>
               <TooltipTrigger asChild>
@@ -148,17 +148,17 @@ export const TextModeControl: React.FC<TextModeControlProps> = ({
                   onClick={onVoiceModeToggle}
                   disabled={isTogglingVoice}
                   className={clsx(
-                    "scxl:flex scxl:items-center scxl:justify-center scxl:gap-1.5 scxl:font-medium scxl:p-2 scxl:cursor-pointer hover:scxl:-translate-y-0.5 scxl:transition-all scxl:duration-200 scxl:ease-in-out scxl:rounded",
-                    isVoiceMode ? "scxl:bg-blue-100" : "scxl:bg-transparent",
-                    isTogglingVoice && "scxl:opacity-50 scxl:cursor-not-allowed"
+                    "flex items-center justify-center gap-1.5 font-medium p-2 cursor-pointer hover:-translate-y-0.5 transition-all duration-200 ease-in-out rounded",
+                    isVoiceMode ? "bg-blue-100" : "bg-transparent",
+                    isTogglingVoice && "opacity-50 cursor-not-allowed"
                   )}
                   type="button"
                 >
                   <span
                     className={clsx(
-                      "scxl:text-sm",
+                      "text-sm",
                     //   size.text,
-                      isVoiceMode ? "scxl:text-blue-600" : theme.primary
+                      isVoiceMode ? "text-blue-600" : theme.primary
                     )}
                   >
                     {isTogglingVoice
@@ -167,7 +167,7 @@ export const TextModeControl: React.FC<TextModeControlProps> = ({
                       ? "Switch to text"
                       : "Switch to voice"}
                   </span>
-                  <AudioLines className="scxl:size-4" />
+                  <AudioLines className="size-4" />
                 </button>
               </TooltipTrigger>
               <TooltipContent sideOffset={5}>
@@ -214,10 +214,10 @@ const DisconnectButton: React.FC<DisconnectButtonProps> = ({
           onClick={handleClick}
           onKeyDown={handleKeyDown}
           className={clsx(
-            "scxl:mb-1 scxl:cursor-pointer scxl:px-4 scxl:text-white scxl:p-2 scxl:rounded-full scxl:transition-colors scxl:flex scxl:items-center scxl:gap-1.5 scxl:text-sm",
+            "mb-1 cursor-pointer px-4 text-white p-2 rounded-full transition-colors flex items-center gap-1.5 text-sm",
             size.text,
             theme.error,
-            "scxl:bg-red-500 hover:scxl:bg-red-700"
+            "bg-red-500 hover:bg-red-700"
           )}
           type="button"
         >
@@ -252,7 +252,7 @@ export const VoiceModeControl = ({
 }: VoiceModeControlProps) => {
 
   return (
-    <div className="scxl:flex scxl:justify-between scxl:items-center scxl:w-full scxl:text-sm">
+    <div className="flex justify-between items-center w-full text-sm">
       <UserAudio />
       {/* <BotAudioPanel /> */}
       <Tooltip>
@@ -262,15 +262,15 @@ export const VoiceModeControl = ({
             onClick={onVoiceModeToggle}
             disabled={isTogglingVoice}
             className={clsx(
-              "scxl:flex scxl:items-center scxl:justify-center scxl:gap-1.5 scxl:font-medium scxl:p-2 scxl:border scxl:border-indigo-500 scxl:rounded-full scxl:cursor-pointer hover:scxl:-translate-y-0.5 scxl:transition-all scxl:duration-200 scxl:ease-in-out scxl:bg-transparent",
-              isTogglingVoice && "scxl:opacity-50 scxl:cursor-not-allowed"
+              "flex items-center justify-center gap-1.5 font-medium p-2 border border-indigo-500 rounded-full cursor-pointer hover:-translate-y-0.5 transition-all duration-200 ease-in-out bg-transparent",
+              isTogglingVoice && "opacity-50 cursor-not-allowed"
             )}
             type="button"
           >
             <span
               className={clsx(
-                "scxl:text-sm",
-                isVoiceMode ? "scxl:text-indigo-500" : theme.primary
+                "text-sm",
+                isVoiceMode ? "text-indigo-500" : theme.primary
               )}
             >
               {isTogglingVoice
@@ -279,7 +279,7 @@ export const VoiceModeControl = ({
                 ? "Switch to text"
                 : "Switch to voice"}
             </span>
-            <AudioLines className="scxl:size-4" />
+            <AudioLines className="size-4" />
           </button>
         </TooltipTrigger>
         <TooltipContent sideOffset={5}>{labels.textTooltip}</TooltipContent>

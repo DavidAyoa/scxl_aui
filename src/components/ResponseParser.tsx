@@ -9,7 +9,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "./ui/tooltip";
 import type { ResponseParserProps } from "../types";
 
 const ResponseParser: React.FC<ResponseParserProps> = ({
@@ -172,7 +172,7 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
     return parts.map((part, index) => {
       if (part.startsWith("**") && part.endsWith("**")) {
         return (
-          <strong key={index} className="scxl:font-bold scxl:text-gray-900">
+          <strong key={index} className="font-bold text-gray-900">
             {part.slice(2, -2)}
           </strong>
         );
@@ -180,7 +180,7 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
 
       if (part.startsWith("~~") && part.endsWith("~~")) {
         return (
-          <del key={index} className="scxl:line-through scxl:text-gray-600">
+          <del key={index} className="line-through text-gray-600">
             {part.slice(2, -2)}
           </del>
         );
@@ -193,7 +193,7 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
         (part.startsWith("_") && part.endsWith("_"))
       ) {
         return (
-          <em key={index} className="scxl:italic scxl:text-gray-800">
+          <em key={index} className="italic text-gray-800">
             {part.slice(1, -1)}
           </em>
         );
@@ -203,7 +203,7 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
         return (
           <code
             key={index}
-            className="scxl:px-1.5 scxl:py-0.5 scxl:bg-gray-100 scxl:text-gray-800 scxl:rounded scxl:text-sm scxl:font-mono scxl:border"
+            className="px-1.5 py-0.5 bg-gray-100 text-gray-800 rounded text-sm font-mono border"
           >
             {part.slice(1, -1)}
           </code>
@@ -227,12 +227,12 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
 
         const HeaderTag = `h${headerLevel}` as keyof JSX.IntrinsicElements;
         const headerClasses = {
-          1: "scxl:text-3xl scxl:font-bold scxl:text-gray-900 scxl:mt-8 scxl:mb-4",
-          2: "scxl:text-2xl scxl:font-bold scxl:text-gray-900 scxl:mt-6 scxl:mb-3",
-          3: "scxl:text-xl scxl:font-semibold scxl:text-gray-900 scxl:mt-5 scxl:mb-3",
-          4: "scxl:text-lg scxl:font-semibold scxl:text-gray-800 scxl:mt-4 scxl:mb-2",
-          5: "scxl:text-base scxl:font-semibold scxl:text-gray-800 scxl:mt-3 scxl:mb-2",
-          6: "scxl:text-sm scxl:font-semibold scxl:text-gray-700 scxl:mt-2 scxl:mb-2",
+          1: "text-3xl font-bold text-gray-900 mt-8 mb-4",
+          2: "text-2xl font-bold text-gray-900 mt-6 mb-3",
+          3: "text-xl font-semibold text-gray-900 mt-5 mb-3",
+          4: "text-lg font-semibold text-gray-800 mt-4 mb-2",
+          5: "text-base font-semibold text-gray-800 mt-3 mb-2",
+          6: "text-sm font-semibold text-gray-700 mt-2 mb-2",
         };
 
         return (
@@ -250,12 +250,12 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
         const language = lines[0].replace("```", "").trim();
         const codeContent = lines.slice(1, -1).join("\n");
         return (
-          <div key={paragraphIndex} className="scxl:my-6 scxl:relative">
+          <div key={paragraphIndex} className="my-6 relative">
             {language && (
-              <div className="scxl:text-xs scxl:text-gray-500 scxl:mb-1 scxl:font-mono">{language}</div>
+              <div className="text-xs text-gray-500 mb-1 font-mono">{language}</div>
             )}
-            <pre className="scxl:p-4 scxl:bg-gray-50 scxl:rounded-lg scxl:overflow-x-auto scxl:border">
-              <code className="scxl:text-sm scxl:font-mono scxl:text-gray-800">
+            <pre className="p-4 bg-gray-50 rounded-lg overflow-x-auto border">
+              <code className="text-sm font-mono text-gray-800">
                 {codeContent}
               </code>
             </pre>
@@ -273,9 +273,9 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
           .filter((line) => /^\d+\./.test(line.trim()))
           .map((line) => line.replace(/^\d+\.\s*/, "").trim());
         return (
-          <ol key={paragraphIndex} className="scxl:my-6 scxl:ml-6 scxl:list-decimal scxl:space-y-2">
+          <ol key={paragraphIndex} className="my-6 ml-6 list-decimal space-y-2">
             {items.map((item, i) => (
-              <li key={i} className="scxl:text-gray-700 scxl:leading-relaxed scxl:pl-2">
+              <li key={i} className="text-gray-700 leading-relaxed pl-2">
                 {renderTextWithFormatting(item)}
               </li>
             ))}
@@ -293,9 +293,9 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
           .filter((line) => /^[-•*+]/.test(line.trim()))
           .map((line) => line.replace(/^[-•*+]\s*/, "").trim());
         return (
-          <ul key={paragraphIndex} className="scxl:my-6 scxl:ml-6 scxl:list-disc scxl:space-y-2">
+          <ul key={paragraphIndex} className="my-6 ml-6 list-disc space-y-2">
             {items.map((item, i) => (
-              <li key={i} className="scxl:text-gray-700 scxl:leading-relaxed scxl:pl-2">
+              <li key={i} className="text-gray-700 leading-relaxed pl-2">
                 {renderTextWithFormatting(item)}
               </li>
             ))}
@@ -312,9 +312,9 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
         return (
           <blockquote
             key={paragraphIndex}
-            className="scxl:my-6 scxl:pl-4 scxl:border-l-4 scxl:border-indigo-200 scxl:bg-indigo-50 scxl:py-3 scxl:pr-4 scxl:rounded-r"
+            className="my-6 pl-4 border-l-4 border-indigo-200 bg-indigo-50 py-3 pr-4 rounded-r"
           >
-            <p className="scxl:text-gray-700 scxl:italic scxl:leading-relaxed">
+            <p className="text-gray-700 italic leading-relaxed">
               {renderTextWithFormatting(quoteContent)}
             </p>
           </blockquote>
@@ -325,12 +325,12 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
       return (
         <div
           key={paragraphIndex}
-          className="scxl:my-2 scxl:text-gray-700 scxl:leading-relaxed"
+          className="my-2 text-gray-700 leading-relaxed"
         >
           {lines.map((line, i) => (
             <React.Fragment key={i}>
               {i > 0 && <br />}
-              <span className="scxl:block">{renderTextWithFormatting(line)}</span>
+              <span className="block">{renderTextWithFormatting(line)}</span>
             </React.Fragment>
           ))}
         </div>
@@ -340,11 +340,11 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
 
   if (!rawContent || !cleanContent(rawContent)) {
     return (
-      <div className={`scxl:flex scxl:items-center scxl:space-x-2 scxl:text-gray-500 ${className}`}>
-        <div className="scxl:flex scxl:space-x-1">
-          <div className="scxl:w-2 scxl:h-2 scxl:rounded-full scxl:bg-gray-400 scxl:animate-bounce" />
-          <div className="scxl:w-2 scxl:h-2 scxl:rounded-full scxl:bg-gray-400 scxl:animate-bounce scxl:delay-200" />
-          <div className="scxl:w-2 scxl:h-2 scxl:rounded-full scxl:bg-gray-400 scxl:animate-bounce scxl:delay-400" />
+      <div className={`flex items-center space-x-2 text-gray-500 ${className}`}>
+        <div className="flex space-x-1">
+          <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce" />
+          <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce delay-200" />
+          <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce delay-400" />
         </div>
       </div>
     );
@@ -353,35 +353,35 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
   return (
     <TooltipProvider>
       <motion.div
-        className={`scxl:prose scxl:prose-lg scxl:max-w-none ${className}`}
+        className={`prose prose-lg max-w-none ${className}`}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="scxl:space-y-1">
+        <div className="space-y-1">
           {renderFormattedContent(displayedText)}
         </div>
         
         <AnimatePresence>
           {isTypewriterComplete && (
             <motion.div
-              className="scxl:flex scxl:items-center scxl:justify-between"
+              className="flex items-center justify-between"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2, delay: 0.2 }}
             >
-              <div className="scxl:flex scxl:items-center scxl:gap-2">
+              <div className="flex items-center gap-2">
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <button 
                       onClick={handleLike}
                       type="button" 
-                      className="scxl:flex scxl:items-center scxl:cursor-pointer scxl:justify-center scxl:p-1.5 scxl:rounded-full scxl:transition-colors scxl:duration-200"
+                      className="flex items-center cursor-pointer justify-center p-1.5 rounded-full transition-colors duration-200"
                     >
                       {likeState === 'liked' ? (
-                        <Check className="scxl:w-3.5 scxl:h-3.5 scxl:text-indigo-500" />
+                        <Check className="w-3.5 h-3.5 text-indigo-500" />
                       ) : (
-                        <ThumbsUp className="scxl:w-3.5 scxl:h-3.5 scxl:text-indigo-500" />
+                        <ThumbsUp className="w-3.5 h-3.5 text-indigo-500" />
                       )}
                     </button>
                   </TooltipTrigger>
@@ -395,12 +395,12 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
                     <button 
                       onClick={handleDislike}
                       type="button" 
-                      className="scxl:flex scxl:items-center scxl:cursor-pointer scxl:justify-center scxl:p-1.5 scxl:rounded-full scxl:transition-colors scxl:duration-200"
+                      className="flex items-center cursor-pointer justify-center p-1.5 rounded-full transition-colors duration-200"
                     >
                       {likeState === 'disliked' ? (
-                        <Check className="scxl:w-3.5 scxl:h-3.5 scxl:text-indigo-500" />
+                        <Check className="w-3.5 h-3.5 text-indigo-500" />
                       ) : (
-                        <ThumbsDown className="scxl:w-3.5 scxl:h-3.5 scxl:text-indigo-500" />
+                        <ThumbsDown className="w-3.5 h-3.5 text-indigo-500" />
                       )}
                     </button>
                   </TooltipTrigger>
@@ -414,12 +414,12 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
                     <button 
                       onClick={handleCopy}
                       type="button" 
-                      className="scxl:flex scxl:items-center scxl:cursor-pointer scxl:justify-center scxl:p-1.5 scxl:rounded-full scxl:transition-colors scxl:duration-200"
+                      className="flex items-center cursor-pointer justify-center p-1.5 rounded-full transition-colors duration-200"
                     >
                       {copyState === 'copied' ? (
-                        <Check className="scxl:w-3.5 scxl:h-3.5 scxl:text-indigo-500" />
+                        <Check className="w-3.5 h-3.5 text-indigo-500" />
                       ) : (
-                        <Copy className="scxl:w-3.5 scxl:h-3.5 scxl:text-indigo-500" />
+                        <Copy className="w-3.5 h-3.5 text-indigo-500" />
                       )}
                     </button>
                   </TooltipTrigger>
@@ -429,9 +429,9 @@ const ResponseParser: React.FC<ResponseParserProps> = ({
                 </Tooltip>
               </div>
               
-              <div className="scxl:flex scxl:items-center scxl:gap-2 scxl:text-xs scxl:text-gray-400">
-                {/* <span className="scxl:text-purple-600">{responseTime}</span> */}
-                <p className="scxl:text-gray-700 scxl:cursor-pointer hover:scxl:opacity-80 scxl:transition-all scxl:duration-200 scxl:ease-in-out">
+              <div className="flex items-center gap-2 text-xs text-gray-400">
+                {/* <span className="text-purple-600">{responseTime}</span> */}
+                <p className="text-gray-700 cursor-pointer hover:opacity-80 transition-all duration-200 ease-in-out">
                   {new Date(timeStamp || Date.now()).toLocaleTimeString()}
                 </p>
               </div>

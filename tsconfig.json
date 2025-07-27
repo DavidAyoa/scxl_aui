@@ -1,25 +1,35 @@
 {
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationDir": "./dist",
-    "outDir": "./dist",
+    "target": "ESNext",
+    "composite": true,
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "target": "ESNext",
-    "jsx": "react-jsx",
     "skipLibCheck": true,
-
-  }
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "rootDir": "./src",
+    "outDir": "./dist/types",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": [
+      "./dist/index.d.ts",
+      "./node_modules/@types"
+    ],
+  },
+  "include": ["src", "src/index.ts"],
 }

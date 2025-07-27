@@ -66,12 +66,12 @@ import {
             <PanelTitle>Bot Audio</PanelTitle>
           </PanelHeader>
         )}
-        <PanelContent className="scxl:overflow-hidden">
+        <PanelContent className="overflow-hidden">
           <div
             ref={containerRef}
-            className="scxl:relative scxl:aspect-video scxl:flex scxl:max-h-20 scxl:overflow-hidden"
+            className="relative aspect-video flex max-h-20 overflow-hidden"
           >
-            <div className="scxl:m-auto">
+            <div className="m-auto">
               <VoiceVisualizer
                 participantType="bot"
                 backgroundColor="transparent"
@@ -85,10 +85,10 @@ import {
               />
             </div>
             {!track && (
-              <div className="scxl:absolute scxl:inset-0 scxl:flex scxl:gap-1 scxl:items-center scxl:justify-center">
+              <div className="absolute inset-0 flex gap-1 items-center justify-center">
                 <MicOff size={16} />
                 {!collapsed && (
-                  <span className="scxl:font-mono scxl:text-xs">No audio</span>
+                  <span className="font-mono text-xs">No audio</span>
                 )}
               </div>
             )}

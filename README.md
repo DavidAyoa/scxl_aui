@@ -46,16 +46,14 @@ A fully customizable, themeable React component for voice and text conversations
 ## 📦 Installation
 
 ```bash
-# npm install @scoreexl/chatui
-npm install git+https://github.com/DavidAyoa/scxl_aui.git
-# or
-yarn add git+https://github.com/DavidAyoa/scxl_aui.git
+npm install @scoreexl/scxl-aui
 ```
 
 ## 🚀 Quick Start
 
 ```tsx
-import { ChatUI } from 'git+https://github.com/DavidAyoa/scxl_aui.git';
+import { ChatUI } from '@scoreexl/scxl-aui';
+import '@scoreexl/scxl-aui/dist/scxl-aui.css';
 
 function App() {
   return (
@@ -313,7 +311,8 @@ The component includes proper cleanup mechanisms and can be easily tested:
 
 ```tsx
 import { render, cleanup } from '@testing-library/react';
-import { ChatUI } from 'git+https://github.com/DavidAyoa/scxl_aui.git';
+import { ChatUI } from '@scoreexl/scxl-aui';
+import '@scoreexl/scxl-aui/dist/scxl-aui.css';
 
 afterEach(cleanup);
 
@@ -342,11 +341,3 @@ All props are fully typed with TypeScript for excellent developer experience and
 ## 📄 License
 
 MIT License - feel free to use in your projects!
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit issues and pull requests.
-
----
-
-**Made with ❤️ for the React community**

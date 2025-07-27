@@ -1,7 +1,7 @@
 import * as React from "react"
 import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
 
 function TooltipProvider({
   delayDuration = 0,
@@ -44,13 +44,13 @@ function TooltipContent({
         data-slot="tooltip-content"
         sideOffset={sideOffset}
         className={cn(
-          "scxl:bg-indigo-500 scxl:text-white scxl:animate-in scxl:fade-in-0 scxl:zoom-in-95 data-[state=closed]:scxl:animate-out data-[state=closed]:scxl:fade-out-0 data-[state=closed]:scxl:zoom-out-95 data-[side=bottom]:scxl:slide-in-from-top-2 data-[side=left]:scxl:slide-in-from-right-2 data-[side=right]:scxl:slide-in-from-left-2 data-[side=top]:scxl:slide-in-from-bottom-2 scxl:z-50 scxl:w-fit scxl:origin-(--radix-tooltip-content-transform-origin) scxl:rounded-md scxl:px-3 scxl:py-1.5 scxl:text-xs scxl:text-balance",
+          "bg-indigo-500 text-white animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-fit origin-(--radix-tooltip-content-transform-origin) rounded-md px-3 py-1.5 text-xs text-balance",
           className
         )}
         {...props}
       >
         {children}
-        <TooltipPrimitive.Arrow className="scxl:bg-indigo-500 scxl:fill-indigo-500 scxl:z-50 scxl:size-2.5 scxl:translate-y-[calc(-50%_-_2px)] scxl:rotate-45 scxl:rounded-[2px]" />
+        <TooltipPrimitive.Arrow className="bg-indigo-500 fill-indigo-500 z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px]" />
       </TooltipPrimitive.Content>
     </TooltipPrimitive.Portal>
   )

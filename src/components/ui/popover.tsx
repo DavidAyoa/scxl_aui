@@ -1,7 +1,7 @@
 import * as React from "react"
 import * as PopoverPrimitive from "@radix-ui/react-popover"
 
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
 
 function Popover({
   ...props
@@ -28,7 +28,7 @@ function PopoverContent({
         align={align}
         sideOffset={sideOffset}
         className={cn(
-          "scxl:bg-popover scxl:text-popover-foreground scxl:data-[state=open]:animate-in scxl:data-[state=closed]:animate-out scxl:data-[state=closed]:fade-out-0 scxl:data-[state=open]:fade-in-0 scxl:data-[state=closed]:zoom-out-95 scxl:data-[state=open]:zoom-in-95 scxl:data-[side=bottom]:slide-in-from-top-2 scxl:data-[side=left]:slide-in-from-right-2 scxl:data-[side=right]:slide-in-from-left-2 scxl:data-[side=top]:slide-in-from-bottom-2 scxl:z-50 scxl:w-72 scxl:origin-(--radix-popover-content-transform-origin) scxl:rounded-md scxl:border scxl:p-4 scxl:shadow-md scxl:outline-hidden",
+          "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-md border p-4 shadow-md outline-hidden",
           className
         )}
         {...props}

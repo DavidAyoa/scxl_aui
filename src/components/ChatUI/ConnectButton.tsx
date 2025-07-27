@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 import { usePipecatClientTransportState } from "@pipecat-ai/client-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 export type ConnectButtonProps = {
   className?: string;
@@ -37,7 +37,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = ({
       return {
         children: !trackHasStarted ? "Microphone permission not granted" : "Connect",
         variant: "secondary" as const,
-        className: "scxl:bg-gray-400 scxl:hover:bg-gray-400 scxl:cursor-not-allowed scxl:px-10 scxl:rounded-full scxl:transition-colors scxl:duration-200 scxl:text-gray-700",
+        className: "bg-gray-400 hover:bg-gray-400 cursor-not-allowed px-10 rounded-full transition-colors duration-200 text-gray-700",
         disabled: true,
       };
     }
@@ -50,13 +50,13 @@ export const ConnectButton: React.FC<ConnectButtonProps> = ({
       
       return {
         children: (
-          <div className="scxl:flex scxl:items-center scxl:gap-2">
+          <div className="flex items-center gap-2">
             {text}
-            <span className="scxl:w-4 scxl:h-4 scxl:border-2 scxl:border-white scxl:border-t-transparent scxl:rounded-full scxl:animate-spin" />
+            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
           </div>
         ),
         variant: "default" as const,
-        className: "scxl:bg-indigo-500 scxl:hover:bg-indigo-600 scxl:cursor-not-allowed scxl:px-10 scxl:rounded-full scxl:transition-colors scxl:duration-200",
+        className: "bg-indigo-500 hover:bg-indigo-600 cursor-not-allowed px-10 rounded-full transition-colors duration-200",
         disabled: true,
       };
     }
@@ -65,14 +65,14 @@ export const ConnectButton: React.FC<ConnectButtonProps> = ({
       return {
         children: "Disconnect",
         variant: "destructive" as const,
-        className: "scxl:px-10 scxl:rounded-full scxl:transition-colors scxl:duration-200 scxl:bg-red-500 scxl:hover:bg-red-600 scxl:text-white",
+        className: "px-10 rounded-full transition-colors duration-200 bg-red-500 hover:bg-red-600 text-white",
       };
     }
     
     return {
       children: "Connect",
       variant: "default" as const,
-      className: "scxl:bg-indigo-500 scxl:hover:bg-indigo-600 scxl:cursor-pointer scxl:transition-colors scxl:duration-200 scxl:px-10 scxl:rounded-full",
+      className: "bg-indigo-500 hover:bg-indigo-600 cursor-pointer transition-colors duration-200 px-10 rounded-full",
     };
   };
 

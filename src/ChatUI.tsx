@@ -1,6 +1,6 @@
+import "./App.css";
 import { useState, useMemo, useEffect } from "react";
 import clsx from "clsx";
-import "./App.css";
 import Conversations from "./components/ChatUI/Conversations";
 import ConnectButton from "./components/ChatUI/ConnectButton";
 import { useSmallWebRTC } from "./hooks/useSmallWebRTC";
@@ -24,17 +24,17 @@ const LoadingSpinner: React.FC<{
   labels: typeof defaultLabels;
   size: ReturnType<typeof getSizeClasses>;
 }> = ({ theme, labels, size }) => (
-  <div className="scxl:w-full scxl:h-screen scxl:p-5 scxl:font-poppins scxl:flex scxl:justify-center scxl:items-center">
-    <div className="scxl:flex scxl:flex-col scxl:items-center scxl:gap-6">
-      <div className="scxl:text-center scxl:space-y-2">
-        <h1 className={clsx(size.title, "scxl:font-bold", theme.primary)}>
+  <div className="w-full h-screen p-5 font-poppins flex justify-center items-center">
+    <div className="flex flex-col items-center gap-6">
+      <div className="text-center space-y-2">
+        <h1 className={clsx(size.title, "font-bold", theme.primary)}>
           {labels.title}
         </h1>
         <p className={theme.textSecondary}>{labels.loadingText}</p>
       </div>
       <div
         className={clsx(
-          "scxl:animate-spin scxl:rounded-full scxl:h-8 scxl:w-8 scxl:border-b-2",
+          "animate-spin rounded-full h-8 w-8 border-b-2",
           theme.inputBorder
         )}
       ></div>
@@ -62,10 +62,10 @@ const ConnectionScreen: React.FC<{
   showParticipantId = true,
   trackHasStarted,
 }) => (
-  <div className="scxl:w-full scxl:h-screen scxl:p-5 scxl:font-poppins scxl:flex scxl:justify-center scxl:items-center">
-    <div className="scxl:flex scxl:flex-col scxl:items-center scxl:gap-6">
-      <div className="scxl:text-center scxl:space-y-2">
-        <h1 className={clsx(size.title, "scxl:font-bold", theme.primary)}>
+  <div className="w-full h-screen p-5 font-poppins flex justify-center items-center">
+    <div className="flex flex-col items-center gap-6">
+      <div className="text-center space-y-2">
+        <h1 className={clsx(size.title, "font-bold", theme.primary)}>
           {labels.title}
         </h1>
         <p className={theme.textSecondary}>{labels.subtitle}</p>
@@ -74,7 +74,7 @@ const ConnectionScreen: React.FC<{
       {error && (
         <div
           className={clsx(
-            "scxl:border scxl:rounded-lg",
+            "border rounded-lg",
             size.padding,
             theme.errorLight,
             theme.border
@@ -163,11 +163,11 @@ const MainChatArea: React.FC<{
   };
 
   return (
-    <div className="scxl:w-full scxl:h-screen scxl:p-5 scxl:font-poppins scxl:flex scxl:justify-center scxl:items-center">
-      <div className="scxl:w-full scxl:h-full scxl:flex scxl:flex-1 scxl:flex-col scxl:justify-center scxl:items-center">
+    <div className="w-full h-screen p-5 font-poppins flex justify-center items-center">
+      <div className="w-full h-full flex flex-1 flex-col justify-center items-center">
         <div
           className={clsx(
-            "scxl:w-full scxl:h-full scxl:flex scxl:flex-col scxl:justify-center scxl:items-center",
+            "w-full h-full flex flex-col justify-center items-center",
             size.container
           )}
         >
@@ -394,10 +394,10 @@ const ChatUI: React.FC<ChatUIProps> = ({
   // Component validation
   if (!connectionUrl) {
     return (
-      <div className="scxl:w-full scxl:h-screen scxl:p-5 scxl:font-poppins scxl:flex scxl:justify-center scxl:items-center">
+      <div className="w-full h-screen p-5 font-poppins flex justify-center items-center">
         <div
           className={clsx(
-            "scxl:border scxl:rounded-lg",
+            "border rounded-lg",
             sizeClasses.padding,
             themeClasses.errorLight,
             themeClasses.border

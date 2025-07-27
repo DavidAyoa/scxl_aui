@@ -9,7 +9,7 @@ import {
   SmallWebRTCTransport,
   type SmallWebRTCTransportConstructorOptions,
 } from "@pipecat-ai/small-webrtc-transport";
-import type { WebRTCTransportProps, UseSmallWebRTCReturn } from "@/types";
+import type { WebRTCTransportProps, UseSmallWebRTCReturn } from "../types";
 
 const defaultClientOptions: Partial<PipecatClientOptions> = {};
 

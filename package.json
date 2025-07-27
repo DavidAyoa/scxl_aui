@@ -1,13 +1,45 @@
 {
-  "name": "scxl_aui",
-  "version": "0.0.0",
+  "name": "@scoreexl/scxl-aui",
+  "version": "0.1.0",
+  "description": "A fully customizable, themeable React component for voice and text conversations with AI assistants. Built with TypeScript, Tailwind CSS, and designed for easy integration into any React application.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavidAyoa/scxl_aui.git"
+  },
+  "author": "David Ayoa <davidayoa11@gmail.com>",
   "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*",
+    "./style.css": "./dist/index.css"
+  },
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "component",
+    "ui",
+    "tailwindcss",
+    "typescript",
+    "ai",
+    "assistant",
+    "voice",
+    "text"
+  ],
+  "private": false,
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
